@@ -50,11 +50,11 @@ const services = [
     icon: mobile,
   },
   {
-    title: "AI/ML",
+    title: "AI/ML Engineer",
     icon: backend,
   },
   {
-    title: "Data Science Exec",
+    title: "Python Developer",
     icon: creator,
   },
 ];
@@ -116,16 +116,14 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Executive Waterloo, Ontario",
+    title: "Data Science Executive",
     company_name: "UW Data Science Club",
     icon: starbucks,
     iconBg: "#383E56",
     date: "Sept. 2024 - Dec. 2024",
     points: [
       "Managed and curated content for the club's LinkedIn, Instagram, and Discord platforms, implementing targeted engagement strategies that increased audience interaction by 10%.",
-      "anything else?",
-      "anything else?",      
-      "anything else?",      
+            
     ],
   },
   {
@@ -135,10 +133,9 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Jan 2021 - Feb 2022",
     points: [
-      "Collaborated with the team to develop and deliver projects across diverse platforms, utilizing technologies such as Struts 2,Spring, Hibernate, Android, and iOS. Also gained hands-on experience in testing, and quality assurance processes..",
-      "anything else?",
-      "anything else?",      
-      "anything else?",
+      "Worked in an Agile Scrum environment, actively participating in daily stand-ups, sprint planning, and retrospectives to ensure smooth development and testing workflows.",
+      " Designed and executed manual and automated test cases, identifying and debugging issues to enhance software quality.",      
+      "Assisted in developing and maintaining test scripts for regression testing, ensuring product reliability.",
     ],
   },
   {
@@ -154,49 +151,53 @@ const experiences = [
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
-  {
-    title: "pls give experience",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
-    points: [
-      "pls take me",
-      "i will do work",
-      "i will take no breaks and work 24/7 ",
-      "type shi",
-    ],
-  },
+  
 ];
 
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful, but ananya proved me wrong.",
-    name: "Elon Musk",
-    designation: "CFO",
-    company: "Tesla",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+      "Gained proficiency in Python programming concepts, including data structures and file manipulation. Designed a script to organize files in directories based on file type, applying knowledge of Python data structures and file handling.",
+    name: "Python Data Structures",
+    designation: "University of Michigan",
+    company: "Coursera",
+    image: "https://bjatta.bja.ojp.gov/sites/default/files/u-m_logo-hex_0.png",
   },
+  
+  
   {
-    testimonial:
-      "i love ananya",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+   testimonial:
+      "Developed a strong foundation in Python programming, including control structures, loops, functions and built practical applications of Python, such as data processing scripts.",
+    name: "Python Programming",
+    designation: "University of Michigan",
+    company: "Coursera",
+    image: "https://bjatta.bja.ojp.gov/sites/default/files/u-m_logo-hex_0.png",
   },
-  {
-    testimonial:
-      "i am your mom!",
-    name: "Your mom",
-    designation: "CTO",
-    company: "I love",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
+  
 ];
 
 const projects = [
+  {
+    name: "WatSpot: UW Study Spaces",
+    description:
+      "WatSpot is a smart web application that helps students find their ideal study spots on campus. By considering personal preferences like noise levels, aesthetics, and nearby food options, WatSpot provides tailored recommendations.",
+    tags: [
+      {
+        name: "nextjs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Python",
+        color: "green-text-gradient",
+      },
+      {
+        name: "css",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: tripguide,
+    source_code_link: "https://github.com/11Ananya/WatSpot",
+  },
   {
     name: "GetGymFit",
     description:
@@ -216,15 +217,15 @@ const projects = [
       },
     ],
     image: carrent,
-    source_code_link: "https://github.com/",
+    source_code_link: "",
   },
   {
     name: "Law firm Management",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Developed to help law firms keep record of case details, lawyer details, and also allow the concerned client to keep a track of the progress of their case and lawyer. The software provides an easy-to-use menu-driven interface to perform various tasks.",
     tags: [
       {
-        name: "react",
+        name: "python",
         color: "blue-text-gradient",
       },
       {
@@ -232,34 +233,14 @@ const projects = [
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "MySQL",
         color: "pink-text-gradient",
       },
     ],
     image: jobit,
-    source_code_link: "https://github.com/",
+    source_code_link: "",
   },
-  {
-    name: "one more proj",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-    tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
-  },
+  
 ];
 
 export { services, technologies, experiences, testimonials, projects };
