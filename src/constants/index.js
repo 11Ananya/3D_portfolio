@@ -122,8 +122,21 @@ const experiences = [
     iconBg: "#383E56",
     date: "Sept. 2024 - Dec. 2024",
     points: [
-      "Managed and curated content for the club's LinkedIn, Instagram, and Discord platforms, implementing targeted engagement strategies that increased audience interaction by 10%.",
+      "Managed and curated content for the club's LinkedIn, Discord and other platforms, implementing targeted engagement strategies that increased audience interaction by 10%.",
             
+    ],
+  },
+  {
+    title: "Software Developer Intern",
+    company_name: "Technousa Consulting Services",
+    icon: tesla,
+    iconBg: "#E6DEDD",
+    date: "May 2024 – August 2024",
+    points: [
+      "Reduced dashboard data fetch latency by designing normalized PostgreSQL schemas, building REST APIs in Node.js.",
+      "Integrated WebSockets, Chart.js, and server-side pagination to handle 500+ records with real-time interactivity.",      
+      "Enhanced load speed by 25% via lazy loading, code splitting, and API caching with Redis.",
+      "Refactored legacy React components into modular, reusable hooks and services, reducing frontend code duplication."
     ],
   },
   {
@@ -131,11 +144,13 @@ const experiences = [
     company_name: "Talent4Assure",
     icon: tesla,
     iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    date: "May 2023 – August 2023",
     points: [
-      "Worked in an Agile Scrum environment, actively participating in daily stand-ups, sprint planning, and retrospectives to ensure smooth development and testing workflows.",
-      " Designed and executed manual and automated test cases, identifying and debugging issues to enhance software quality.",      
-      "Assisted in developing and maintaining test scripts for regression testing, ensuring product reliability.",
+      "Designed and executed 50+ manual and automated test cases, debugging issues to enhance software quality.",
+      "Developed Selenium-based test scripts for regression testing, ensuring 95% product reliability across multiple releases.", 
+      "Conducted API testing using Postman and performed cross-browser testing using Selenium WebDriver.",
+      "Used JIRA for bug tracking and collaborated with developers to resolve software defects efficiently.",
+
     ],
   },
   {
