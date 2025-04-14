@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="24" cy="24" r="22" fill="#1a0b2e"/>
+  
+  <!-- Play Button Triangle -->
+  <path d="M34 24L18 34L18 14L34 24Z" fill="#915EFF"/>
+  
+  <!-- Outer Ring -->
+  <circle cx="24" cy="24" r="22" stroke="#915EFF" stroke-width="1.5" fill="none"/>
+</svg>

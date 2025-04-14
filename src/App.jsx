@@ -1,6 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from "./components";
+import Chatbot from "./components/Chatbot";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Contact />
           <StarsCanvas />
         </div>
+        <Chatbot />
       </div>
     </BrowserRouter>
   );

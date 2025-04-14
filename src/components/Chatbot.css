@@ -1,0 +1,106 @@
+/* Dark theme */
+.cs-dark.cs-main-container {
+  background: #0a0416 !important;
+  border: none !important;
+}
+
+.cs-dark .cs-message-list {
+  background: #0a0416 !important;
+  padding: 1rem;
+}
+
+.cs-dark .cs-message-input {
+  background: #1a0b2e !important;
+  border-top: 1px solid rgba(145, 94, 255, 0.2) !important;
+}
+
+.cs-dark .cs-typing-indicator {
+  background: #1a0b2e !important;
+}
+
+.cs-dark .cs-message-input__content-editor {
+  background: #1a0b2e !important;
+  color: white !important;
+}
+
+.cs-dark .cs-message-input__content-editor[data-placeholder]:empty:before {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.cs-dark .cs-message__content {
+  background: transparent !important;
+}
+
+.cs-dark .cs-message-list__scroll-wrapper {
+  scrollbar-color: #915EFF #1a0b2e;
+}
+
+/* Light theme */
+.cs-light.cs-main-container {
+  background: white !important;
+  border: none !important;
+}
+
+.cs-light .cs-message-list {
+  background: white !important;
+  padding: 1rem;
+}
+
+.cs-light .cs-message-input {
+  background: #f8f8f8 !important;
+  border-top: 1px solid rgba(145, 94, 255, 0.1) !important;
+}
+
+.cs-light .cs-typing-indicator {
+  background: #f8f8f8 !important;
+}
+
+.cs-light .cs-message-input__content-editor {
+  background: #f8f8f8 !important;
+  color: #1a1a1a !important;
+}
+
+.cs-light .cs-message-input__content-editor[data-placeholder]:empty:before {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.cs-light .cs-message__content {
+  background: transparent !important;
+}
+
+.cs-light .cs-message-list__scroll-wrapper {
+  scrollbar-color: #915EFF #f8f8f8;
+}
+
+/* Shared styles */
+.cs-message-list__scroll-wrapper {
+  scrollbar-width: thin;
+}
+
+.cs-message-list__scroll-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cs-message-list__scroll-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cs-message-list__scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: #915EFF;
+  border-radius: 3px;
+}
+
+.cs-message-input__content-editor-wrapper {
+  padding: 10px !important;
+}
+
+.cs-message-input__content-editor {
+  padding: 8px 12px !important;
+  border-radius: 8px !important;
+}
+
+.cs-typing-indicator {
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  margin: 8px 0 !important;
+}
