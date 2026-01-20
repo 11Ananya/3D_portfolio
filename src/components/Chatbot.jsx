@@ -17,6 +17,7 @@ const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [inputValue, setInputValue] = useState('');
+  const [isDeactivated] = useState(true); // Chatbot temporarily deactivated
 
   const themes = {
     dark: {
@@ -88,14 +89,14 @@ const Chatbot = () => {
       let errorMessage = "I apologize, but I'm having trouble processing your request right now.";
       
       // Provide more specific error messages
-      if (error.message.includes('API key')) {
+      if (error.message.includes('API key') || error.message.includes('authentication')) {
         errorMessage = "API key error: Please check your OpenAI API key configuration on the server.";
       } else if (error.message.includes('insufficient_quota') || error.message.includes('billing')) {
         errorMessage = "Your OpenAI account has run out of credits. Please add billing information or check your usage at platform.openai.com";
-      } else if (error.message.includes('rate_limit')) {
+      } else if (error.message.includes('rate_limit') || error.message.includes('Rate limit')) {
         errorMessage = "Rate limit exceeded. Please wait a moment and try again.";
       } else if (error.message) {
-        errorMessage = `Error: ${error.message}`;
+        errorMessage = error.message;
       }
       
       setMessages([...newMessages, {
@@ -162,25 +163,39 @@ const Chatbot = () => {
             <div className={`flex-1 overflow-hidden ${isMinimized ? 'hidden' : ''}`}>
               <div className="h-full overflow-y-auto">
                 <div className="p-4 space-y-4">
-                  {messages.map((message, i) => (
-                    <div
-                      key={i}
-                      className={`flex ${message.sender === "bot" ? "justify-start" : "justify-end"}`}
-                    >
-                      <div
-                        className={`max-w-[80%] break-words rounded-lg p-3 ${message.sender === "bot" ? currentTheme.messageBot : currentTheme.messageUser} 
-                          ${currentTheme.text} border ${currentTheme.borderLight}`}
-                      >
-                        {message.message}
+                  {isDeactivated ? (
+                    <div className="flex justify-center items-center h-full">
+                      <div className={`text-center ${currentTheme.text}`}>
+                        <div className="text-4xl mb-4">🚧</div>
+                        <div className={`${currentTheme.messageBot} rounded-lg p-4 border ${currentTheme.borderLight}`}>
+                          <p className="font-semibold mb-2">Deactivating my chatbot for now, too much traffic! 🚦</p>
+                          <p className="text-sm opacity-80">I'm taking a little break to catch my breath. Check back soon! 😊</p>
+                        </div>
                       </div>
                     </div>
-                  ))}
-                  {isTyping && (
-                    <div className="flex justify-start">
-                      <div className={`${currentTheme.messageBot} ${currentTheme.text} rounded-lg p-3 border ${currentTheme.borderLight}`}>
-                        <TypingIndicator content="AI is thinking..." />
-                      </div>
-                    </div>
+                  ) : (
+                    <>
+                      {messages.map((message, i) => (
+                        <div
+                          key={i}
+                          className={`flex ${message.sender === "bot" ? "justify-start" : "justify-end"}`}
+                        >
+                          <div
+                            className={`max-w-[80%] break-words rounded-lg p-3 ${message.sender === "bot" ? currentTheme.messageBot : currentTheme.messageUser} 
+                              ${currentTheme.text} border ${currentTheme.borderLight}`}
+                          >
+                            {message.message}
+                          </div>
+                        </div>
+                      ))}
+                      {isTyping && (
+                        <div className="flex justify-start">
+                          <div className={`${currentTheme.messageBot} ${currentTheme.text} rounded-lg p-3 border ${currentTheme.borderLight}`}>
+                            <TypingIndicator content="AI is thinking..." />
+                          </div>
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               </div>
@@ -193,18 +208,19 @@ const Chatbot = () => {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={(e) => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
+                    if (e.key === 'Enter' && !e.shiftKey && !isDeactivated) {
                       e.preventDefault();
                       handleSend();
                     }
                   }}
-                  placeholder="Ask me anything about Ananya..."
-                  className={`flex-1 p-2 rounded-lg ${currentTheme.text} ${currentTheme.border} focus:outline-none focus:ring-2 focus:ring-[#915EFF]`} 
+                  placeholder={isDeactivated ? "Chatbot temporarily unavailable..." : "Ask me anything about Ananya..."}
+                  className={`flex-1 p-2 rounded-lg ${currentTheme.text} ${currentTheme.border} focus:outline-none focus:ring-2 focus:ring-[#915EFF] ${isDeactivated ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  disabled={isDeactivated}
                 />
                 <button
                   onClick={handleSend}
-                  className={`px-4 py-2 rounded-lg ${currentTheme.accent} ${currentTheme.hover} transition-colors`}
-                  disabled={!inputValue.trim()}
+                  className={`px-4 py-2 rounded-lg ${currentTheme.accent} ${currentTheme.hover} transition-colors ${isDeactivated ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  disabled={!inputValue.trim() || isDeactivated}
                 >
                   Send
                 </button>

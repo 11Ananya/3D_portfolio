@@ -72,8 +72,20 @@ Please answer questions in a friendly and conversational tone.`;
 
     if (!response.ok) {
       const errorData = await response.json();
-      return res.status(response.status).json({ 
-        error: errorData.error?.message || 'OpenAI API request failed' 
+      const statusCode = response.status;
+      let errorMessage = errorData.error?.message || 'OpenAI API request failed';
+      
+      // Provide user-friendly messages for common errors
+      if (statusCode === 429) {
+        errorMessage = 'Rate limit exceeded. Please wait a moment and try again.';
+      } else if (statusCode === 401) {
+        errorMessage = 'API authentication failed. Please check your OpenAI API key.';
+      } else if (statusCode === 500) {
+        errorMessage = 'OpenAI service error. Please try again later.';
+      }
+      
+      return res.status(statusCode).json({ 
+        error: errorMessage 
       });
     }
 
