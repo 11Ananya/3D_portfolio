@@ -14,7 +14,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [isTyping, setIsTyping] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [inputValue, setInputValue] = useState('');
   const [isDeactivated] = useState(true); // Chatbot temporarily deactivated
@@ -169,7 +169,7 @@ const Chatbot = () => {
                         <div className="text-4xl mb-4">🚧</div>
                         <div className={`${currentTheme.messageBot} rounded-lg p-4 border ${currentTheme.borderLight}`}>
                           <p className="font-semibold mb-2">Deactivating my chatbot for now, too much traffic! 🚦</p>
-                          <p className="text-sm opacity-80">I'm taking a little break to catch my breath. Check back soon! 😊</p>
+                          <p className="text-sm opacity-80">My credits are running out at rapid-fire speed. Check back soon!</p>
                         </div>
                       </div>
                     </div>
