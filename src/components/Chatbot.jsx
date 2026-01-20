@@ -53,6 +53,20 @@ const Chatbot = () => {
   const handleSend = async () => {
     if (!inputValue.trim()) return;
 
+    // Check if API key exists
+    if (!apiKey) {
+      setMessages([...messages, {
+        message: inputValue,
+        sender: "user",
+        direction: "outgoing"
+      }, {
+        message: "OpenAI API key is missing. Please add VITE_OPENAI_API_KEY to your .env file. The chatbot cannot function without it.",
+        sender: "bot",
+        direction: "incoming"
+      }]);
+      return;
+    }
+
     const newMessage = {
       message: inputValue,
       sender: "user",
@@ -124,8 +138,21 @@ Please answer questions in a friendly and conversational tone.`,
       }]);
     } catch (error) {
       console.error("Error:", error);
+      let errorMessage = "I apologize, but I'm having trouble processing your request right now.";
+      
+      // Provide more specific error messages
+      if (error.message.includes('API key')) {
+        errorMessage = "API key error: Please check your OpenAI API key configuration.";
+      } else if (error.message.includes('insufficient_quota') || error.message.includes('billing')) {
+        errorMessage = "Your OpenAI account has run out of credits. Please add billing information or check your usage at platform.openai.com";
+      } else if (error.message.includes('rate_limit')) {
+        errorMessage = "Rate limit exceeded. Please wait a moment and try again.";
+      } else if (error.message) {
+        errorMessage = `Error: ${error.message}`;
+      }
+      
       setMessages([...newMessages, {
-        message: "I apologize, but I'm having trouble processing your request right now.",
+        message: errorMessage,
         sender: "bot",
         direction: "incoming"
       }]);
